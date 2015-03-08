@@ -9,7 +9,7 @@ setup(
     name='sqlsploit',
     version='0.1.0',
     url='https://github.com/wjbarlow/sqlsploit',
-    license=‘Apache’,
+    license=‘MIT’,
     author='William Barlow',
     author_email='will@threadtheweb.co.uk',
     description='Automated data exfiltration and vulnerability identification framework.',
