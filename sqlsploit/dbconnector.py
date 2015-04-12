@@ -2,22 +2,32 @@ __author__ = 'will@threadtheweb.co.uk'
 # dbconnector.py - connect to databases
 
 # import modules
-#import MySQLdb
-import sys
-import click
-import SQLAlchemy
-import peewee
+import PyMySQL
 
-from peewee import *
+from sqlsploit.cli import *
+
+
+# import classes
+
 
 # Connect to MySQL
-db = MySQLDatabase('test', user='test', passwd='test')
+def mysqlconnect(host, username, password):
+    conn = PyMySQL.connect(host=host, port=3306, user=username, passwd=password, db='test')
+    cur = conn.cursor()
+    logging.info("Connected to MySQL")
+    cur.execute("SELECT firstname,lastname FROM users")
+    print(cur.description)
+    print()
+    logging.info("connect to %s" % host)
 
-#class
+    for row in cur:
+        print(row)
 
-#SQLAlchemy.create_engine('mysql://')
+        cur.close()
+        conn.close()
+        logging.info('Closed SQL Connection')
 
-#connection = MySQLdb.connect(host="127.0.0.1")
-
-#from sqlalchemy import create_engine
-#engine = create_engine('sqlite:///:memory:', echo=True)
+# Connect to SQL Server
+# Connect to Oracle
+# Connect to Postgresql
+# Connect to SQLite

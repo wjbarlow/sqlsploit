@@ -3,7 +3,7 @@ SQL Data discovery tool.
 """
 from setuptools import find_packages, setup
 
-dependencies = ['click']
+dependencies = ['click', 'PyMySQL']
 
 setup(
     name='sqlsploit',
